@@ -292,6 +292,7 @@
 		
 		nodeToAM : function(outnode) {
 			if (tinymce.isIE) {
+				/*
 				  var str = outnode.innerHTML.replace(/\`/g,"");
 				  str.replace(/\"/,"&quot;");
 				   var newAM = document.createElement("span");
@@ -300,7 +301,12 @@
 				  } else {
 					  newAM.appendChild(AMparseMath(str));
 				  }
-				  outnode.innerHTML = newAM.innerHTML;    
+				  outnode.innerHTML = newAM.innerHTML;  */  
+                  		var str = outnode.innerHTML.replace(/\`/g,"");
+                  		str.replace(/\"/,"&quot;");
+                  		var newAM = document.createElement("span");
+                  		newAM.appendChild(AMparseMath(str));
+                  		outnode.innerHTML = newAM.innerHTML;
 			  } else {
 				  //doesn't work on IE, probably because this script is in the parent
 				  //windows, and the node is in the iframe.  Should it work in Moz?
